@@ -39,8 +39,9 @@ panelTablero = new JPanel(new GridLayout(6,6,5,5));
          
          
          panel.add(panelTablero, BorderLayout.CENTER);
-cargarCartas();
+
         panel.setVisible(true);
+        cargarCartas();
         return panel;
     }
 
@@ -110,7 +111,7 @@ cargarCartas();
         try{
             ArrayList<String> imagenes = new ArrayList<>();
             
-            for (int i = 0; i < 18; i++) {
+            for (int i = 0; i < 36; i++) {
                 imagenes.add("/Imagenes/" + i + ".png");
                 imagenes.add("/Imagenes/" + i + ".png");
                 
