@@ -30,6 +30,11 @@ public class Jugadores {
     public int getAciertos() {
         return aciertos;
     }
+    
+    @Override
+    public String toString() {
+        return nombre + " - Aciertos: " + aciertos;
+    }
 
     
 }
