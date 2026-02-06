@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package lab3_abstraccion;
 
-/**
- *
- * @author USER
- */
+
 public class Jugadores {
     
     private String nombre;
@@ -29,6 +22,11 @@ public class Jugadores {
 
     public int getAciertos() {
         return aciertos;
+    }
+    
+    @Override
+    public String toString() {
+        return nombre + " - Aciertos: " + aciertos;
     }
 
     

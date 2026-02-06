@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
-public class Gui extends JFrame implements Acciones {
+public class Gui extends JFrame implements Acciones{
     private Cartas[] cartas = new Cartas[36];
     private Jugadores j1, j2;
     private int turnoActu = 1;
@@ -19,8 +19,8 @@ public class Gui extends JFrame implements Acciones {
         try{
             ArrayList<String> imagenes = new ArrayList<>();
             for (int i = 0; i < 18; i++) {
-                imagenes.add("");
-                imagenes.add("");
+                imagenes.add("src/Imagenes"+i+".png");
+                imagenes.add("src/Imagenes"+i+".png");
                 
             }
             Collections.shuffle(imagenes);
@@ -35,12 +35,12 @@ public class Gui extends JFrame implements Acciones {
     public void VerificarPareja(int p1, int p2){
         
         
-        if (cartas[p1].imagenRuta.equals(cartas[p2].imagenRuta)) {
+        if (cartas[p1].getId().equals(cartas[p2].getId())) {
             
-            if(turnoActual == 1){
-                j1.sumarAcierto();
+            if(turnoActu == 1){
+                j1.incrementarAcierto();
             }else {
-                j2.sumaAciertos();
+                j2.incrementarAcierto();
             }
         }else{
             cambiarTurno();
@@ -61,5 +61,22 @@ public class Gui extends JFrame implements Acciones {
     }
     
     
+    
+}
+
+class CartaMemoria extends Cartas{
+
+    public CartaMemoria(String ruta){
+        super(ruta);
+    }
+    @Override
+    public void mostrar(){
+        this.descubierta = true;
+    }
+    
+    @Override
+    public void ocultar(){
+        this.descubierta=false;
+    }
     
 }
