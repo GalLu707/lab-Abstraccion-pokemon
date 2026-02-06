@@ -171,18 +171,3 @@ panel.add(panelInfo);
     
 }
 
-class CartaMemoria extends Cartas{
-    public CartaMemoria(String ruta){
-        super(ruta);
-    }
-    @Override
-    public void mostrar(){
-        this.descubierta = true;
-    }
-    
-    @Override
-    public void ocultar(){
-        this.descubierta=false;
-    }
-    
-}

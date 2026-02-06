@@ -1,13 +1,10 @@
 
 package lab3_abstraccion;
 
-
-
 import java.util.*;
 
 public class Tablero {
 
-    
     private Cartas[][] cartas;
     private int filas, columnas;
     private int parejasEncontradas;
@@ -18,57 +15,36 @@ public class Tablero {
         this.columnas = columnas;
         this.cartas = new Cartas[filas][columnas];
         this.totalParejas = (filas * columnas) / 2;
+        inicializarCartas();
     }
-
 
     private void inicializarCartas() {
 
-     
         String[] imagenes = {
-            "/imagenes/0.png",
-             "/imagenes/1.png",
-            "/imagenes/2.png",
-            "/imagenes/3.png",
-            "/imagenes/4.png",
-            "/imagenes/5.png",
-            "/imagenes/6.png",
-            "/imagenes/7.png",
-            "/imagenes/8.png",
-            "/imagenes/9.png",
-            "/imagenes/10.png",
-            "/imagenes/11.png",
-            "/imagenes/12.png",
-            "/imagenes/13.png",
-            "/imagenes/14.png",
-            "/imagenes/15.png",
-            "/imagenes/16.png",
-            "/imagenes/17.png"
+            "/Imagenes/0.png", "/Imagenes/1.png", "/Imagenes/2.png",
+            "/Imagenes/3.png", "/Imagenes/4.png", "/Imagenes/5.png",
+            "/Imagenes/6.png", "/Imagenes/7.png", "/Imagenes/8.png",
+            "/Imagenes/9.png", "/Imagenes/10.png", "/Imagenes/11.png",
+            "/Imagenes/12.png", "/Imagenes/13.png", "/Imagenes/14.png",
+            "/Imagenes/15.png", "/Imagenes/16.png", "/Imagenes/17.png"
         };
 
-        List<Cartas> listaCartas = new ArrayList<>();
+        List<Cartas> lista = new ArrayList<>();
 
-        // Crear parejas de cartas con la misma imagen
         for (int i = 0; i < totalParejas; i++) {
-            String id = String.valueOf((char) ('A' + i));
-            String rutaImagen = imagenes[i];
-
-            listaCartas.add(new CartaImagen(id, rutaImagen));
-            listaCartas.add(new CartaImagen(id, rutaImagen));
+            String id = "C" + i;
+            lista.add(new CartaMemoria(id, imagenes[i]));
+            lista.add(new CartaMemoria(id, imagenes[i]));
         }
 
-    
-        Collections.shuffle(listaCartas);
+        Collections.shuffle(lista);
 
-   
-        int indice = 0;
-        for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++) {
-                cartas[i][j] = listaCartas.get(indice++);
+        int index = 0;
+        for (int f = 0; f < filas; f++) {
+            for (int c = 0; c < columnas; c++) {
+                cartas[f][c] = lista.get(index++);
             }
         }
-    public void setCarta(int f, int c, Cartas carta) {
-        cartas[f][c] = carta;
-
     }
 
     public Cartas getCarta(int f, int c) {
@@ -83,5 +59,11 @@ public class Tablero {
         return parejasEncontradas == totalParejas;
     }
 
+    public int getFilas() {
+        return filas;
+    }
 
+    public int getColumnas() {
+        return columnas;
+    }
 }
