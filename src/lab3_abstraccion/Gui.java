@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -22,23 +23,23 @@ public class Gui extends JFrame{
     private JPanel panelTablero;
 
     public JFrame Gui() {
-
+panelTablero = new JPanel(new GridLayout(6,6,5,5));
         JFrame panel = new JFrame();
         panel.setTitle("Juego de Memoria");
-        panel.setSize(800, 800);
+        panel.setSize(1000, 1800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         panel.setLocationRelativeTo(null);
-       JPanel panelInfo = new JPanel(new GridLayout(1,2));
+       JPanel panelInfo = new JPanel(new BorderLayout());
        panelInfo.add(new JLabel (j1+ " : 0 aciertos"));
          panelInfo.add(new JLabel (j2 +" : 0 aciertos"));
         
-         add(panelInfo, BorderLayout.NORTH);
+         panel.add(panelInfo, BorderLayout.NORTH);
          
          
-         panelTablero = new JPanel(new GridLayout(6,6,5,5));
-         cargarCartas();
-         add(panelTablero);
-panel.add(panelInfo);
+         
+         
+         panel.add(panelTablero, BorderLayout.CENTER);
+cargarCartas();
         panel.setVisible(true);
         return panel;
     }
@@ -116,8 +117,15 @@ panel.add(panelInfo);
             }
             Collections.shuffle(imagenes);
             
-            for(int i =0; i<=18; i++){
-                cartas[i]= new CartaMemoria(imagenes.get(i));
+            for(int i =0; i<=35; i++){
+                String ruta = imagenes.get(i);
+                
+                cartas[i]= new CartaMemoria(ruta, ruta);
+                
+                JButton boton = new JButton("?");
+                panelTablero.add(boton);
+                
+                
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "error al cargar Imagen"+ e.getMessage());

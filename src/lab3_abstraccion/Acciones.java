@@ -79,7 +79,7 @@ public class Acciones {
                 System.out.println("La carta ya está emparejada, no se puede voltear");
                 return;
             }
-            carta.voltear();
+            
             System.out.println("Carta volteada: " + carta.getId());
             
         } catch (NullPointerException e) {
