@@ -29,8 +29,8 @@ public class Gui extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         panel.setLocationRelativeTo(null);
        JPanel panelInfo = new JPanel(new GridLayout(1,2));
-       panelInfo.add(new JLabel ("jugador 1 : 0 aciertos"));
-         panelInfo.add(new JLabel ("jugador 2 : 0 aciertos"));
+       panelInfo.add(new JLabel (j1+ " : 0 aciertos"));
+         panelInfo.add(new JLabel (j2 +" : 0 aciertos"));
         
          add(panelInfo, BorderLayout.NORTH);
          
