@@ -1,18 +1,15 @@
 
 package lab3_abstraccion;
 
-import java.awt.*;
+
+
 import java.util.*;
-import java.util.List;
-
-
 
 public class Tablero {
 
     
     private Cartas[][] cartas;
-    private int filas;
-    private int columnas;
+    private int filas, columnas;
     private int parejasEncontradas;
     private int totalParejas;
 
@@ -20,10 +17,9 @@ public class Tablero {
         this.filas = filas;
         this.columnas = columnas;
         this.cartas = new Cartas[filas][columnas];
-        this.parejasEncontradas = 0;
         this.totalParejas = (filas * columnas) / 2;
-        inicializarCartas();
     }
+
 
     private void inicializarCartas() {
 
@@ -70,18 +66,14 @@ public class Tablero {
                 cartas[i][j] = listaCartas.get(indice++);
             }
         }
+    public void setCarta(int f, int c, Cartas carta) {
+        cartas[f][c] = carta;
+
     }
 
-    public Cartas getCarta(int fila, int columna) {
-        if (fila < 0 || fila >= filas || columna < 0 || columna >= columnas) {
-            System.err.println("Índice fuera de rango");
-            return null;
-        }
-        return cartas[fila][columna];
+    public Cartas getCarta(int f, int c) {
+        return cartas[f][c];
     }
-    
-    
-    
 
     public void incrementarParejasEncontradas() {
         parejasEncontradas++;
@@ -91,19 +83,5 @@ public class Tablero {
         return parejasEncontradas == totalParejas;
     }
 
-    public int getFilas() {
-        return filas;
-    }
 
-    public int getColumnas() {
-        return columnas;
-    }
-
-    public int getParejasEncontradas() {
-        return parejasEncontradas;
-    }
-
-    public int getTotalParejas() {
-        return totalParejas;
-    }
 }
