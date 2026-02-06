@@ -21,7 +21,7 @@ public class Tablero {
     private void inicializarCartas() {
 
         String[] imagenes = {
-            "/Imagenes/0.png", "/Imagenes/1.png", "/Imagenes/2.png",
+            "/Imagenes/18.png", "/Imagenes/1.png", "/Imagenes/2.png",
             "/Imagenes/3.png", "/Imagenes/4.png", "/Imagenes/5.png",
             "/Imagenes/6.png", "/Imagenes/7.png", "/Imagenes/8.png",
             "/Imagenes/9.png", "/Imagenes/10.png", "/Imagenes/11.png",
@@ -31,7 +31,7 @@ public class Tablero {
 
         List<Cartas> lista = new ArrayList<>();
 
-        for (int i = 0; i < totalParejas; i++) {
+        for (int i = 1; i <= totalParejas; i++) {
             String id = "C" + i;
             lista.add(new CartaMemoria(id, imagenes[i]));
             lista.add(new CartaMemoria(id, imagenes[i]));
@@ -46,6 +46,9 @@ public class Tablero {
             }
         }
     }
+    
+    
+    
 
     public Cartas getCarta(int f, int c) {
         return cartas[f][c];
