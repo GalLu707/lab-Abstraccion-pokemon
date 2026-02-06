@@ -13,5 +13,4 @@ public class CartaImagen extends Cartas {
     
     
     
-    
 }
