@@ -8,6 +8,10 @@ package lab3_abstraccion;
  *
  * @author USER
  */
-public class CartaImagen {
+public class CartaImagen extends Cartas {
+    
+    
+    
+    
     
 }
