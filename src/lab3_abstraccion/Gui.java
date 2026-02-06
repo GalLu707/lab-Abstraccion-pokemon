@@ -4,16 +4,47 @@
  */
 package lab3_abstraccion;
 
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 
-public class Gui extends JFrame implements Acciones{
+public class Gui extends JFrame {
     private Cartas[] cartas = new Cartas[36];
     private Jugadores j1, j2;
     private int turnoActu = 1;
+    private Acciones control = new Acciones();
+   
+    private JPanel panelTablero;
+
+    public JFrame Gui() {
+
+        JFrame panel = new JFrame();
+        panel.setTitle("Juego de Memoria");
+        panel.setSize(800, 800);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        panel.setLocationRelativeTo(null);
+       JPanel panelInfo = new JPanel(new GridLayout(1,2));
+       panelInfo.add(new JLabel ("jugador 1 : 0 aciertos"));
+         panelInfo.add(new JLabel ("jugador 2 : 0 aciertos"));
+        
+         add(panelInfo, BorderLayout.NORTH);
+         
+         
+         panelTablero = new JPanel(new GridLayout(6,6,5,5));
+         cargarCartas();
+         add(panelTablero);
+panel.add(panelInfo);
+        panel.setVisible(true);
+        return panel;
+    }
+
+    
     
     public void cargarCartas(){
         try{
@@ -34,17 +65,20 @@ public class Gui extends JFrame implements Acciones{
     }
     public void VerificarPareja(int p1, int p2){
         
-        
-        if (cartas[p1].getId().equals(cartas[p2].getId())) {
-            
-            if(turnoActu == 1){
+        if(control.validarPareja(cartas[p1], cartas[p2])){
+            control.emparejarCartas(cartas[p1], cartas[p2]);
+            if(turnoActu ==1){
                 j1.incrementarAcierto();
-            }else {
+            }else{
                 j2.incrementarAcierto();
             }
         }else{
+            control.ocultarCarta(cartas[p1]);
+            control.ocultarCarta(cartas[p2]);
             cambiarTurno();
-        } 
+        }
+        
+        
         
     }
   

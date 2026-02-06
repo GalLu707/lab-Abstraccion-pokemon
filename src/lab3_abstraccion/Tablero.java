@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Tablero {
 
+    
     private Cartas[][] cartas;
     private int filas;
     private int columnas;
@@ -28,18 +29,24 @@ public class Tablero {
 
      
         String[] imagenes = {
-            "/imagenes/img1.png",
-            "/imagenes/img2.png",
-            "/imagenes/img3.png",
-            "/imagenes/img4.png",
-            "/imagenes/img5.png",
-            "/imagenes/img6.png",
-            "/imagenes/img7.png",
-            "/imagenes/img8.png",
-            "/imagenes/img9.png",
-            "/imagenes/img10.png",
-            "/imagenes/img11.png",
-            "/imagenes/img12.png"
+            "/imagenes/0.png",
+             "/imagenes/1.png",
+            "/imagenes/2.png",
+            "/imagenes/3.png",
+            "/imagenes/4.png",
+            "/imagenes/5.png",
+            "/imagenes/6.png",
+            "/imagenes/7.png",
+            "/imagenes/8.png",
+            "/imagenes/9.png",
+            "/imagenes/10.png",
+            "/imagenes/11.png",
+            "/imagenes/12.png",
+            "/imagenes/13.png",
+            "/imagenes/14.png",
+            "/imagenes/15.png",
+            "/imagenes/16.png",
+            "/imagenes/17.png"
         };
 
         List<Cartas> listaCartas = new ArrayList<>();
